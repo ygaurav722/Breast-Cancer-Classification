@@ -31,19 +31,16 @@ X_test = sc.transform(X_test)
 from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression(random_state = 0)
 classifier.fit(X_train, Y_train)
-#95.8 Acuracy
 
 #Fitting K-NN Algorithm
 from sklearn.neighbors import KNeighborsClassifier
 classifier = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)
 classifier.fit(X_train, Y_train)
-#95.1 Acuracy
 
 #Fitting SVM
 from sklearn.svm import SVC
 classifier = SVC(kernel = 'linear', random_state = 0)
 classifier.fit(X_train, Y_train) 
-#97.2 Acuracy
 
 #Fitting K-SVM
 from sklearn.svm import SVC
@@ -61,13 +58,11 @@ classifier.fit(X_train, Y_train)
 from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
 classifier.fit(X_train, Y_train)
-#95.8 Acuracy
 
 #Fitting Random Forest Classification Algorithm
 from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
 classifier.fit(X_train, Y_train)
-#98.6 Acuracy
 
 #predicting the Test set results
 Y_pred = classifier.predict(X_test)
@@ -75,4 +70,7 @@ Y_pred = classifier.predict(X_test)
 #Creating the confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(Y_test, Y_pred)
+#correct Predictions 
 c = print(cm[0, 0] + cm[1, 1])
+
+#Accuraccy= Correct Predictions / Total Predictions 
